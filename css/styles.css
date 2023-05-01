@@ -1,0 +1,381 @@
+/* roboto-regular - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Roboto";
+    font-weight: 400;
+    src: url("../fonts/roboto-v30-latin-regular.woff2") format("woff2"),
+    url("../fonts/roboto-v30-latin-regular.woff") format("woff");
+}
+/* roboto-500 - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Roboto";
+    font-weight: 500;
+    src: url("../fonts/roboto-v30-latin-500.woff2") format("woff2"),
+    url("../fonts/roboto-v30-latin-500.woff") format("woff");
+}
+/* roboto-700 - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Roboto";
+    font-weight: 700;
+    src: url("../fonts/roboto-v30-latin-700.woff2") format("woff2"),
+    url("../fonts/roboto-v30-latin-700.woff") format("woff");
+}
+
+/* VARIABLES */
+:root{
+    --main-body-bgcolor:#f2f2f2;
+    --main-header-bgcolor:#fff;
+    --main-text-color:#111517; 
+    --main-switch-color:#202c36;
+    --main-table-thead:#d14b4b;
+    --main-table-th:#198754;
+    --main-table-td:#8ff3c6;
+}
+
+
+.dark {
+    --main-body-bgcolor:#202c36;;
+    --main-header-bgcolor:#2b3844;;
+    --main-text-color:#fff; 
+    --main-switch-color:#dcdcdc;
+    --main-table-thead:#ed666f;
+    /* --main-table-th:#fff; */
+    --main-table-td:#fff;
+}
+
+*{
+    box-sizing: border-box;
+}
+/* GENERAL */
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+html{
+    height: 100%;
+    box-sizing: border-box;
+}
+img{
+    display: block;
+    height: auto;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", "Arial", sans-serif;
+    background-color: var(--main-body-bgcolor);
+}
+
+/* VISUALLY-HIDDEN */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+/* CONTAINER */
+.container{
+    max-width: 1240px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+/* STICKY-FOOTER */
+.site-main{
+    flex-grow: 1;
+}
+
+/* Header start */
+
+.site-header {
+    padding: 20px 0;
+    background-color: var(--main-header-bgcolor);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.site-header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+}
+
+.site-header__logo {
+    font-size: 24px;
+    line-height: 33px;
+    font-weight: 700;
+    color: var(--main-text-color);
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.site-header__logo:hover {
+    color: var(--main-text-color);
+}
+
+.nav__list {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 50px;
+}
+
+.nav__item {
+    margin-left: 20px;
+}
+
+.nav__link {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 33px;
+    color: var(--main-text-color);
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+.nav__link:hover {
+    color: #14dd2f;
+}
+
+.site-header__input {
+    display: none;
+}
+
+.site-header__form {
+    width: 100px;
+    height: 50px;
+}
+
+
+.site-header__switch {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    border: 2px solid var(--main-switch-color);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.site-header__switch::before {
+    position: relative;
+    z-index: 2;
+    top: 3px;
+    left: 5px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: var(--main-text-color);
+    border-radius: 50%;
+    transition: 0.5s ease-in-out;
+    content: "";
+}
+
+.site-header__switch--js::before {
+    left: 50px;
+    transition: 0.5s ease-in-out;
+}
+
+/* .site-header__input:checked + .site-header__switch::before {
+    left: 35px;
+    transition: 0.5s ease-in-out;
+} */
+
+.moon {
+    position: relative;
+    top: -37px;
+    right: -60px;
+    width: 25px;
+    height: 25px;
+}
+
+.sun {
+    position: relative;
+    top: -62px;
+    left: 12px;
+    width: 25px;
+    height: 25px;
+}
+
+
+/* Header end */
+
+
+/* Hero start */
+
+.pray-title {
+    display: inline-block;
+    margin-top: 0;
+    padding-top: 50px;
+    font-size: 50px;
+    border-bottom: 3px solid var(--main-text-color);
+    color: var(--main-text-color);
+}
+
+.pray-time {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.pray-time > time {
+    font-size: 35px;
+    margin-left: 10px;
+}
+
+.js-pray__region , .js-pray__month {
+    background-color: var(--main-header-bgcolor);
+    border: none;
+    color: var(--main-text-color);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.js-pray__region:focus {
+    box-shadow: none;
+}
+
+.js-pray__month:focus {
+    box-shadow: none;
+}
+
+.pray-table {
+    border-collapse: collapse;
+}
+
+.js-pray__wrapper {
+    display: none;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.wrapper__region {
+    letter-spacing: 2px;
+    background-color: var(--main-header-bgcolor);
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+th,td {
+    border: 1px solid var(--main-text-color);
+    padding: 10px 40px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.js-pray__date , .js-pray__dat {
+    background-color: var(--main-table-thead);
+    color: #fff;
+}
+
+.pray-td__day , .pray-td__date {
+    color: var(--main-text-color);
+    font-weight: bold;
+}
+
+.js-pray__th {
+    background-color: var(--main-table-th);
+    color: #fff;
+    font-weight: bold;
+}
+
+.pray-td {
+    color: var(--main-text-color);
+    font-weight: bold; 
+}
+
+.js-pray__list {
+    padding: 20px 20px 30px;
+    background-color: var(--main-header-bgcolor);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    list-style: none;
+    
+}
+
+.pray-day__item {
+    max-width: 170px;
+    width: 100%;
+    padding: 5px 8px;
+    border-radius: 10px;
+    background-color: var(--main-header-bgcolor);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    color: var(--main-text-color);
+}
+
+.js-pray__title {
+    color: var(--main-text-color);
+    letter-spacing: 2px;
+    text-shadow: 3px 0px 7px rgba(43, 196, 35, 0.6), -3px 0px 7px rgba(73, 217, 90, 0.6), 0px 4px 7px rgba(54, 228, 92, 0.6);
+}
+
+.pray-box {
+    padding: 10px 0;
+    background-color: var(--main-text-color);
+    color: var(--main-header-bgcolor);
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.pray__cards > time {
+    color: #14dd2f;
+}
+/* Hero end */
+
+
+/* About start */
+
+.about {
+    padding-bottom: 50px;
+}
+
+.about__list {
+    padding: 20px;
+    background-color: var(--main-header-bgcolor);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.about__item {
+    display: flex;
+    flex-direction: column;
+    max-width: 380px;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.about__title {
+    color: var(--main-text-color);
+}
+
+.about__text {
+    line-height: 25px;
+    text-align: justify;
+    color: var(--main-text-color);
+    opacity: 0.7;
+}
+
+/* About end */
