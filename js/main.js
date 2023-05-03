@@ -1,5 +1,6 @@
 const elBody = document.querySelector("body");
 const elSwitchButton = document.querySelector(".site-header__switch");
+const elAbout = document.querySelector(".about")
 
 // Form start DOM
 const elForm = document.querySelector(".js-pray__form");
@@ -12,25 +13,45 @@ const elPrayWrapperRegion = document.querySelector(".js-wrapper__region");
 const elPrayTbody = document.querySelector(".pray-tbody");
 
 // Day prayList start DOM
+const elPray = document.querySelector(".pray")
 const elPrayList = document.querySelector(".js-pray__list");
 const elPrayListRegion = document.querySelector(".js-pray__title");
 const elPrayListYear = document.querySelector(".js-list__year");
+
+// Audio Surahs list start
+const elAudio = document.querySelector(".audio")
+const elAudioList = document.querySelector(".audio-list");
+const elAudioLink = document.querySelector(".nav__lik--js");
+const elAudioPray = document.querySelector(".nav__link--pray");
 
 // New Date()
 
 const now = new Date();
 
-// console.log(now.getHours() + ":" + now.getMinutes());
+setInterval(() => {
+    
+    const time = new Date();
+    
+    let hours = time.getHours();
+    let minuts = time.getMinutes();
+    let seconds = time.getSeconds();
+    
+    if(hours < 10){
+        hours = "0" + hours;
+    }
+    
+    if(minuts < 10){
+        minuts = "0" + minuts;
+    }
+    
+    if(seconds < 10){
+        seconds = "0" + seconds;
+    }
+    
+    elPrayListYear.textContent = `${hours}:${minuts}:${seconds}`
+    
+},1000);
 
-if(now.getHours() < 10 && now.getMinutes() < 10){
-    elPrayListYear.textContent = `0${now.getHours()}:0${now.getMinutes()}`;
-}else if(now.getHours() < 10) {
-    elPrayListYear.textContent = `0${now.getHours()}:${now.getMinutes()}`;
-}else if(now.getHours() > 10 && now.getMinutes() < 10) {
-    elPrayListYear.textContent = `${now.getHours()}:0${now.getMinutes()}`;
-}else {
-    elPrayListYear.textContent = now.getHours() + ":" + now.getMinutes();
-}
 
 
 // Dark Light Button start
@@ -39,6 +60,23 @@ elSwitchButton.addEventListener("click" , ()=> {
     elBody.classList.toggle("dark")
     elSwitchButton.classList.toggle("site-header__switch--js")
 });
+
+// Nav link audio 
+
+elAudioLink.addEventListener("click" , ()=> {
+    elAudio.style.display = "block";
+    elAbout.style.display = "none";
+    elPray.style.display = "none";
+    
+});
+
+// Nav link Pray 
+
+elAudioPray.addEventListener("click" , ()=> {
+    elAudio.style.display = "none";
+    elAbout.style.display = "block";
+    elPray.style.display = "block";
+})
 
 // Render function day (kunlik chiqaradigan funksiya);
 
@@ -141,6 +179,54 @@ async function getPrayRegion(url) {
     
 }
 
+// Audio function (Suralarni rander qilish funksiyasi)
+
+function audioRander(arr , node) {
+    
+    const elAudioTemp = document.querySelector(".audio-temp").content;
+    const elAudioFragment = document.createDocumentFragment();
+    
+    arr.forEach(item => {
+        
+        const elCloneAudio = elAudioTemp.cloneNode(true);
+        
+        elCloneAudio.querySelector(".audio-number").textContent = item.number;
+        elCloneAudio.querySelector(".audio-title").textContent = item.englishName;
+        elCloneAudio.querySelector(".audio-name").textContent = item.englishNameTranslation;
+        elCloneAudio.querySelector(".audio-ar__name").textContent = item.name;
+        elCloneAudio.querySelector(".audio-ayahs").textContent = item.ayahs.length;
+        elCloneAudio.querySelector(".audio-icon").href = `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${item.number}.mp3`
+        
+        elAudioFragment.appendChild(elCloneAudio)
+        
+    })
+    
+    node.appendChild(elAudioFragment)
+    
+}
+
+// Async function
+
+async function audioPray(url) {
+    
+    try {
+        
+        const res = await fetch(url);
+        const data = await res.json()
+        
+        // console.log(data);
+        
+        audioRander(data.data.surahs ,elAudioList )
+        
+    } catch (error) {
+        elAudioList.textContent = "Not found 404"
+    }
+    
+}
+
+audioPray(`https://api.alquran.cloud/v1/quran/en.asad`)
+
+
 // Elform submit function
 
 elForm.addEventListener("submit" , (evt) => {
@@ -155,7 +241,7 @@ elForm.addEventListener("submit" , (evt) => {
     if(elSelectMothValue == "month") {
         elPrayList.style.display = "none"
         elPrayWrapper.style.display = "block"
-        getPrayRegion(`https://islomapi.uz/api/monthly?region=${elSelectRegionValue}&month=5`); 
+        getPrayRegion(`https://islomapi.uz/api/monthly?region=${elSelectRegionValue}&month=${now.getMonth() + 1}`); 
     }
     
     if(elSelectMothValue == "week") {

@@ -34,7 +34,6 @@
     --main-table-td:#8ff3c6;
 }
 
-
 .dark {
     --main-body-bgcolor:#202c36;;
     --main-header-bgcolor:#2b3844;;
@@ -88,7 +87,7 @@ body{
 
 /* CONTAINER */
 .container{
-    max-width: 1240px;
+    max-width: 1280px;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -121,7 +120,7 @@ body{
 }
 
 .site-header__logo {
-    font-size: 24px;
+    font-size: 30px;
     line-height: 33px;
     font-weight: 700;
     color: var(--main-text-color);
@@ -149,6 +148,7 @@ body{
 .nav__link {
     font-size: 18px;
     font-weight: 500;
+    font-size: 20px;
     line-height: 33px;
     color: var(--main-text-color);
     text-decoration: none;
@@ -204,32 +204,33 @@ body{
 
 .moon {
     position: relative;
-    top: -37px;
-    right: -60px;
-    width: 25px;
-    height: 25px;
+    top: -40px;
+    right: -58px;
+    width: 30px;
+    height: 30px;
 }
 
 .sun {
     position: relative;
-    top: -62px;
+    top: -70px;
     left: 12px;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
 }
-
 
 /* Header end */
 
 
 /* Hero start */
 
+.pray {
+    padding: 60px 0 50px;
+}
+
 .pray-title {
     display: inline-block;
     margin-top: 0;
-    padding-top: 50px;
-    font-size: 50px;
-    border-bottom: 3px solid var(--main-text-color);
+    font-size: 40px;
     color: var(--main-text-color);
 }
 
@@ -244,6 +245,40 @@ body{
 .pray-time > time {
     font-size: 35px;
     margin-left: 10px;
+}
+
+.js-pray__region , .js-pray__month {
+    background-image: none;
+}
+
+.pray-region__label::before {
+    position: absolute;
+    top: 42%;
+    left: calc(50% - 95px);
+    background-image: url("../images/shapewhite.svg");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    content: "";
+}
+
+.dark .pray-region__label::before {
+    background-image: url("../images/shapeblack.svg");
+}
+
+.pray-month__label::before {
+    position: absolute;
+    top: 42%;
+    right: calc(50% - 480px);
+    background-image: url("../images/shapewhite.svg");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    content: ""; 
+}
+
+.dark .pray-month__label::before {
+    background-image: url("../images/shapeblack.svg");
 }
 
 .js-pray__region , .js-pray__month {
@@ -263,12 +298,11 @@ body{
 
 .pray-table {
     border-collapse: collapse;
+    margin-left: 35px;
 }
 
 .js-pray__wrapper {
     display: none;
-    margin-right: 10px;
-    margin-left: 10px;
 }
 
 .wrapper__region {
@@ -340,6 +374,10 @@ th,td {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.js-pray__weekday , .js-pray__date--time {
+    border-bottom: 2px solid var(--main-header-bgcolor);
+}
+
 .pray__cards > time {
     color: #14dd2f;
 }
@@ -379,3 +417,67 @@ th,td {
 }
 
 /* About end */
+
+/* Audio start */
+
+.audio {
+    display: none;
+}
+
+.audio-heading {
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: var(--main-text-color);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.audio-item {
+    max-width: 400px;
+    width: 100%;
+    padding: 30px 25px;
+    background-color: var(--main-header-bgcolor);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.audio-number__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid var(--main-text-color);
+    transform: rotate(-45deg);
+}
+
+.audio-number {
+    font-weight: bold;
+    color: var(--main-text-color);
+    transform: rotate(45deg);
+}
+
+.audio-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--main-text-color);
+}
+
+.audio-name {
+    font-size: 16px;
+    color: var(--main-text-color);
+}
+
+.audio-ar__name {
+    color: var(--main-text-color);
+}
+
+.audio-ayahs__content {
+    color: var(--main-text-color);
+}
+
+.audio-ayahs {
+    color: var(--main-text-color);
+}
+/* Audio end */

@@ -24,10 +24,10 @@
                     <nav class="site-header__navigation nav">
                         <ul class="nav__list">
                             <li class="nav__item">
-                                <a class="nav__link" href="#">Nomoz Vaqtlari</a>
+                                <a class="nav__link nav__link--pray" href="#">Nomoz Vaqtlari</a>
                             </li>
                             <li class="nav__item">
-                                <a class="nav__link" href="#">Suralar</a>
+                                <a class="nav__link nav__lik--js" href="#">Suralar</a>
                             </li>
                         </ul>
                     </nav>
@@ -36,8 +36,8 @@
                     <label class="site-header__label">
                         <input class="site-header__input" type="checkbox">
                         <span class="site-header__switch"></span>
-                        <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
-                        <img class="sun" src="./images/sunny.png" alt="">
+                        <img class="moon" src="./images/moon-solid.png" alt="moon img">
+                        <img class="sun" src="./images/sunny.png" alt="sun img">
                     </label>
                 </form>
             </div>
@@ -52,10 +52,10 @@
         
         <!-- Hero start -->
         
-        <section class="pray pb-5">
+        <section class="pray">
             <div class="container">
-                <div class="d-flex flex-column align-items-center mb-5">
-                    <h1 class="pray-title mb-4">
+                <div class="d-flex justify-content-between mb-5">
+                    <h1 class="pray-title">
                         Nomoz Vaqtlari
                     </h1>
                     <div class="pray-time badge bg-success">
@@ -65,26 +65,30 @@
                     </div>
                 </div>
                 <!-- Form start -->
-                <form class="js-pray__form d-flex justify-content-center mb-5">
-                    <select class="js-pray__region form-select form-select-lg w-50 me-4" aria-label="Default select example">
-                        <option value="Toshkent">Toshkent</option>
-                        <option value="Qarshi">Qarshi</option>
-                        <option value="Xiva">Xiva</option>
-                        <option value="Namangan">Namangan</option>
-                        <option value="Buxoro">Buxoro</option>
-                        <option value="Samarqand">Samarqand</option>
-                        <option value="Guliston">Guliston</option>
-                        <option value="Andijon">Andijon</option>
-                        <option value="Navoiy">Navoiy</option>
-                        <option value="Nukus">Nukus</option>
-                        <option value="Jizzax">Jizzax</option>
-                        <option value="Qo'qon">Qo'qon</option>
-                    </select>
-                    <select class="form-select form-select-lg js-pray__month w-50" aria-label="Default select example">
-                        <option value="day">Kunlik</option>
-                        <option value="week">Haftalik</option>
-                        <option value="month">Oylik</option>
-                    </select>
+                <form class="js-pray__form position-relative d-flex justify-content-center mb-5">
+                    <label class="pray-region__label w-50  me-4">
+                        <select class="js-pray__region form-select form-select-lg" aria-label="Default select example">
+                            <option value="Toshkent">Toshkent</option>
+                            <option value="Qarshi">Qarshi</option>
+                            <option value="Xiva">Xiva</option>
+                            <option value="Namangan">Namangan</option>
+                            <option value="Buxoro">Buxoro</option>
+                            <option value="Samarqand">Samarqand</option>
+                            <option value="Guliston">Guliston</option>
+                            <option value="Andijon">Andijon</option>
+                            <option value="Navoiy">Navoiy</option>
+                            <option value="Nukus">Nukus</option>
+                            <option value="Jizzax">Jizzax</option>
+                            <option value="Qo'qon">Qo'qon</option>
+                        </select>
+                    </label>
+                    <label class="pray-month__label w-50">
+                        <select class="form-select form-select-lg js-pray__month" aria-label="Default select example">
+                            <option value="day">Kunlik</option>
+                            <option value="week">Haftalik</option>
+                            <option value="month">Oylik</option>
+                        </select>
+                    </label>
                     <button class="btn btn-success btn-lg px-4 ms-4">Send</button>
                 </form>
                 <!-- Form end -->
@@ -210,6 +214,19 @@
         
         <!-- About end -->
         
+        <!-- Suralar start -->
+        
+        <section class="audio pt-5">
+            <div class="container">
+                <h2 class="audio-heading text-center fw-bold">Suralar</h2>
+                <ul class="audio-list list-unstyled d-flex flex-wrap justify-content-between">
+                    
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Suralar end-->
+        
     </main>
     
     <!-- Main end -->
@@ -254,9 +271,15 @@
     
     <template class="pray-temp__day">
         <h3 class="js-pray__title fs-2 fw-bold text-center   mb-4 text-uppercase"></h3>
-        <div class="pray-box d-flex justify-content-center align-items-center mb-4">
-            <time class="js-pray__date--time fs-5  fw-bold"></time>
-            <p class="js-pray__weekday m-0 fs-4 ms-3 fw-bold"></p>
+        <div class="pray-box d-flex align-items-center justify-content-evenly mb-4">
+            <div class="d-flex align-items-center">
+                <span class="text-uppercase">Bugungi sana:</span>
+                <time class="js-pray__date--time ms-2 fs-5  fw-bold"></time>
+            </div>
+            <div>
+                <span class="text-uppercase">Bugungi kun:</span>
+                <p class="js-pray__weekday d-inline-block mb-0 ms-2 fs-4 fw-bold text-uppercase"></p>
+            </div>
         </div>
         <div class="d-flex justify-content-between">
             <div class="pray-day__item">
@@ -312,6 +335,40 @@
     
     <!-- Template day end -->
     
+    
+    <!-- Template audio start -->
+    
+    <template class="audio-temp">
+        <li class="audio-item d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center">
+                <div class="audio-number__wrapper">
+                    <p class="audio-number mb-0">
+                        1
+                    </p>
+                </div>
+                <div>
+                    <h4 class="audio-title mb-1">Al-Faatiha</h4>
+                    <p class="audio-name mb-0">The Opening</p>
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <a class="audio-icon" href="" target="blank">
+                    <img class="audio-button" src="./images/play-button.png"
+                    width="30"
+                    height="30"
+                    alt="audio button icon">
+                </a>
+                <div class="ms-4">
+                    <p class="audio-ar__name mb-1 fw-bold">سُورَةُ ٱلْفَاتِحَةِ</p>
+                    <p class="audio-ayahs__content mb-0">Ayahs
+                        <span class="audio-ayahs">7</span>
+                    </p>
+                </div>
+            </div>
+        </li>
+    </template>
+    
+    <!-- Template audio end -->
     
     
     <script src="./js/main.js"></script>
